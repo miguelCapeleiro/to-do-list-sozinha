@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<form method='POST' action=''>
+
+     {% csrf_token %}
+    <p>
+        <label for='id_titulo'>Titulo:</label> <br>
+        <input type='text'
+        id = 'id_titulo'
+        name='titulo'
+        maxLenght = '200'
+        value = '{% if task %}{{ task.titulo }} {% endif %}'
+        placeholder = 'digite aqui...'
+        >
+    
+    </p>
+    <p>    
+        <label for='id_descricao'>Descrição:</label> <br>
+        <textarea
+        id = 'id_descricao'
+        name='descricao'
+        rows= '6'> {% if task %}{{ task.descricao }} {% endif %}  
+        </textarea
+        >
+    </p>    
+
+
+      <p>
+        <label for='id_prioridade'>Prioridade:</label> <br>
+        <select name = 'prioridade' id='id_prioridade'>
+            {% for  value, label in opcoes_prioridade %}
+                {% if task and task.prioridade == value %}
+                <option value='{{ value }}' selected> {{ label }} </option>
+            {% else %}
+                <option value/='{{ value }}' >{{ label }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+
+    </p>
+
+
+
+     <p>
+        <label for='id_data_limite'>Data_limite:</label> <br>
+        <input type'date'
+        id='id_data_limite'
+        name='data_limite'
+        required
+        value = '{% if task and task.data_limite %}{{task.data_limite|date: "y-m-d"}}{% endif %}'
+        >
+    </p>
+    <button type='submit'>Salvar</button>
+        
+
+
+
+
+{% endblock %}

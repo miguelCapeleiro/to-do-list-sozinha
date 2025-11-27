@@ -36,3 +36,17 @@ def home(request):
     }
 
     return render(request, 'home.html', context)
+
+def task_create(request):
+    if request.method == 'POST':
+        titulo = request.POST.get('titulo', '').strip()
+        descricao = request.POST.get('descricao', '').strip()
+        concluida = request.POST.get('concluida', '').strip()
+        data_limite = request.POST.get('data_limite', '').strip()
+        prioridade = request.POST.get('prioridade', '').strip()
+    
+    context = {
+        'opcoes_prioridade': Task.Priority.choices,
+    }
+
+    return render(request, 'tasks/task_form.html', context)

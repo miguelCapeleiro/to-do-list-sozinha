@@ -6,6 +6,7 @@ urlpatterns = [
     path('concluidas', views.tasks_ok, name= 'tasks_ok'),
     path('pendentes', views.tasks_nok, name = 'tasks_nok'),
     path('home', views.home, name = 'home'),
+    path('baseform', views.task_create, name='baseform')
 ]
 
     

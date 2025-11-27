@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,10 +7,33 @@
     <title>Exemplo de Imagem HTML</title>
 </head>
 <body>
+{% block content %}
+    <h1>Delicias Nordestinas</h1>
+    
 
-    <h1>Minha Página Estática</h1>
+    <img src="https://canalcozinha.com.br/wp-content/uploads/2025/01/Cuscuz-Nordestino.png" alt="Cuscuz" width="500">
+<br>  
+<br>  
+    <img src="https://www.sabornamesa.com.br/media/k2/items/cache/d95ac1e7d6d78552526cbaae66d68531_XL.jpg" alt="Tapioca" width="500">
+<br>  
+<br>  
+    <img src="https://www.acasaencantada.com.br/wp-content/uploads/2021/03/casaencantada_capablog_bobo-1200x800.png" alt="Bobo de camarão" width="500">  
+<br>  
+<br>
+    <img src="https://www.comidaereceitas.com.br/wp-content/uploads/2008/07/acaraje-comida-tradicional-de-origem-africana-da-bahia-com-vatapa-caruru-e-camarao-seco.jpg" alt="Acaraje" width="500">  
+<br>  
+<br>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqSNvNJYZrKUUKBVTlsl4RfstqcKx5TIrTOg&s" alt="Cangaçeiro" width="500">
+<br>  
+<br>    
+    <img src="https://tribunadonorte.com.br/wp-content/uploads/2023/07/140840.jpg" alt="Tapioca com ginga" width="500">
+<br>  
+<br>
+    <img src="https://moinhoglobo.com.br/wp-content/uploads/2015/06/78-Bolo-de-rolo.jpeg" alt="Bolo de Rolo" width="500">
+<br>  
+<br>
+    <img src="https://sabores-new.s3.amazonaws.com/public/2024/11/macaxeira-cozida.jpg" alt="Macaxeira" width="500">
 
-    <img src="" alt="Descrição da foto de um pôr do sol na praia." width="500">
-
+{% endblock %}
 </body>
 </html>
