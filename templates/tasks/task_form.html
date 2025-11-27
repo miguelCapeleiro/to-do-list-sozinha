@@ -50,7 +50,7 @@
         id='id_data_limite'
         name='data_limite'
         required
-        value = '{% if task and task.data_limite %}{{task.data_limite|date: "y-m-d"}}{% endif %}'
+        value = '{% if task and task.data_limite %}{{task.data_limite|date:"y-m-d"}}{% endif %}'
         >
     </p>
     <button type='submit'>Salvar</button>

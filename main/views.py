@@ -41,7 +41,7 @@ def task_create(request):
     if request.method == 'POST':
         titulo = request.POST.get('titulo', '').strip()
         descricao = request.POST.get('descricao', '').strip()
-        concluida = request.POST.get('concluida', '').strip()
+        concluida = request.POST.get('concluida', '') =='on'
         data_limite = request.POST.get('data_limite', '').strip()
         prioridade = request.POST.get('prioridade', '').strip()
     
