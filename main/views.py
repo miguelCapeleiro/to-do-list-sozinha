@@ -64,7 +64,7 @@ def task_create(request):
 
 
 
-def task_update(request, pk):
+def task_update(request, pk):       
     task = get_object_or_404(Task, pk = pk)
     if request.method == 'POST':
         titulo = request.POST.get('titulo', '').strip()
