@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Task
+from django.contrib.auth.decorators import login_required
 # Create your views here.
-
+@login_required
 def task_list(request):
     
     tarefas = Task.objects.all()
@@ -10,7 +11,7 @@ def task_list(request):
     }
 
     return render(request, 'tasks/task_list.html', context)
-
+@login_required
 def tasks_ok(request):
     
     tarefas = Task.objects.filter(concluida=1)
@@ -19,7 +20,7 @@ def tasks_ok(request):
     }
 
     return render(request, 'tasks/task_list.html', context)
-
+@login_required
 def tasks_nok(request):
     tarefas = Task.objects.filter(concluida=0)
     context = {
@@ -27,7 +28,7 @@ def tasks_nok(request):
     }
 
     return render(request, 'tasks/task_list.html', context)
-
+@login_required
 def home(request):
     
     tarefas = Task.objects.all()
@@ -36,7 +37,7 @@ def home(request):
     }
 
     return render(request, 'home.html', context)
-
+@login_required
 def task_create(request):
     if request.method == 'POST':
         titulo = request.POST.get('titulo', '').strip()
@@ -63,7 +64,7 @@ def task_create(request):
     return render(request, 'tasks/task_form.html', context)
 
 
-
+@login_required
 def task_update(request, pk):       
     task = get_object_or_404(Task, pk = pk)
     if request.method == 'POST':
@@ -92,11 +93,11 @@ def task_update(request, pk):
     return render(request, 'tasks/task_form.html', context)
 
 
-
+@login_required
 def task_delete (request, pk):
     task = get_object_or_404(Task,pk=pk)
     
     if request.method == 'POST':
         task.delete()
         return redirect(task_list)
-    return render(request, 'tasks/task_confirm_delete.html')
+    return render(request, 'tasks/task_confirm_delete.html')    
