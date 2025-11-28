@@ -31,11 +31,11 @@
       <p>
         <label for='id_prioridade'>Prioridade:</label> <br>
         <select name = 'prioridade' id='id_prioridade'>
-            {% for  value, label in opcoes_prioridade %}
+            {% for value, label in opcoes_prioridade %}
                 {% if task and task.prioridade == value %}
-                <option value='{{ value }}' selected> {{ label }} </option>
-            {% else %}
-                <option value/='{{ value }}' >{{ label }}</option>
+                    <option value='{{ value }}' selected> {{ label }} </option>
+                {% else %}
+                    <option value/='{{ value }}' >{{ label }}</option>
                 {% endif %}
             {% endfor %}
         </select>
@@ -46,13 +46,27 @@
 
      <p>
         <label for='id_data_limite'>Data_limite:</label> <br>
-        <input type'date'
+        <input type='date'
         id='id_data_limite'
         name='data_limite'
         required
         value = '{% if task and task.data_limite %}{{task.data_limite|date:"y-m-d"}}{% endif %}'
         >
     </p>
+    <p>
+        <label for='id_concluida'>
+        <input 
+            type="checkbox"
+            id="id_concluida"
+            name="concluida"
+            {% if task and task.concluida %} checked {% endif %}
+            >
+            Concluida
+        </label>
+    </p>
+
+
+
     <button type='submit'>Salvar</button>
         
 
